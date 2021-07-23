@@ -38,9 +38,9 @@
 
     
     
-<script type="module" crossorigin src="./assets/index.2a4def16.js"></script>
+<script type="module" crossorigin src="./assets/index.fbe2ad2c.js"></script>
   <link rel="modulepreload" href="./assets/vendor.b5e0dc1f.js">
-  <link rel="stylesheet" href="./assets/index.3db9c7a1.css">
+  <link rel="stylesheet" href="./assets/index.487f75a8.css">
 </head>
 
 <body>
@@ -271,7 +271,7 @@
                             شهر مورد‌نظرتون رو انتخاب کنید
                         </h2>
                     </div>
-                    <div class="flex items-center justify-center lg:justify-end">
+                    <div class="hidden lg:flex items-center justify-center lg:justify-end">
                         <a href="#" class="text-xl">
                             مشاهده همه شهرها
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="w-6 h-6 inline-block"
@@ -341,7 +341,7 @@
                     </a>
                 </div> -->
 
-                <div id="cities-slider" class="swiper-container">
+                <div id="cities-slider" class="swiper-container mb-4 lg:mb-0">
                     <div class="swiper-wrapper">
 
                         <!-- Slides For Loop -->
@@ -433,6 +433,20 @@
 
                     <!-- <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div> -->
+                </div>
+
+                <!-- Section Read More in Mobile -->
+                <div class="grid grid-cols-1 lg:hidden">
+                    <div class="flex items-center justify-center lg:justify-end">
+                        <a href="#" class="text-base">
+                            مشاهده همه شهرها
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="w-4 h-4 inline-block"
+                                viewBox="0 0 512 512">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="48" d="M328 112L184 256l144 144" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
             <!-- END: City Choose Section -->
@@ -546,7 +560,158 @@
                             </h2>
                         </div>
                         <div class="grid grid-cols-1 place-items-center">
-                            <div class="w-full">
+                            <!-- Smooth Accordion -->
+                            <div class="w-full mx-auto" x-data="{selected:null}">
+                                <ul class="shadow-box">
+                                    <!-- Item 1 -->
+                                    <li
+                                        class="relative collapse rounded-box border border-base-300 collapse-arrow mb-2">
+                                        <button type="button" class="collapse-title text-xl font-medium"
+                                            @click="selected !== 1 ? selected = 1 : selected = null">
+                                            <div class="flex items-center justify-between">
+                                                <span>
+                                                    چطور با شما تماس بگیرم؟
+                                                </span>
+                                                <span class="ico-plus"></span>
+                                            </div>
+                                        </button>
+                                        <div class="relative overflow-hidden transition-all max-h-0 duration-700"
+                                            style="" x-ref="container1"
+                                            x-bind:style="selected == 1 ? 'max-height: ' + $refs.container1.scrollHeight + 'px' : ''">
+                                            <div class="p-6">
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                                    استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
+                                                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                                                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                </p>
+                                                <p>
+                                                    کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
+                                                    و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
+                                                    رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد
+                                                    کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                                                    دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا
+                                                    مورد استفاده قرار گیرد.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Item 1 -->
+                                    <li
+                                        class="relative collapse rounded-box border border-base-300 collapse-arrow mb-2">
+                                        <button type="button" class="collapse-title text-xl font-medium"
+                                            @click="selected !== 2 ? selected = 2 : selected = null">
+                                            <div class="flex items-center justify-between">
+                                                <span>
+                                                    چطور با شما تماس بگیرم؟
+                                                </span>
+                                                <span class="ico-plus"></span>
+                                            </div>
+                                        </button>
+                                        <div class="relative overflow-hidden transition-all max-h-0 duration-700"
+                                            style="" x-ref="container2"
+                                            x-bind:style="selected == 2 ? 'max-height: ' + $refs.container2.scrollHeight + 'px' : ''">
+                                            <div class="p-6">
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                                    استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
+                                                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                                                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                </p>
+                                                <p>
+                                                    کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
+                                                    و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
+                                                    رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد
+                                                    کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                                                    دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا
+                                                    مورد استفاده قرار گیرد.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Item 1 -->
+                                    <li
+                                        class="relative collapse rounded-box border border-base-300 collapse-arrow mb-2">
+                                        <button type="button" class="collapse-title text-xl font-medium"
+                                            @click="selected !== 3 ? selected = 3 : selected = null">
+                                            <div class="flex items-center justify-between">
+                                                <span>
+                                                    چطور با شما تماس بگیرم؟
+                                                </span>
+                                                <span class="ico-plus"></span>
+                                            </div>
+                                        </button>
+                                        <div class="relative overflow-hidden transition-all max-h-0 duration-700"
+                                            style="" x-ref="container3"
+                                            x-bind:style="selected == 3 ? 'max-height: ' + $refs.container3.scrollHeight + 'px' : ''">
+                                            <div class="p-6">
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                                    استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
+                                                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                                                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                </p>
+                                                <p>
+                                                    کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
+                                                    و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
+                                                    رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد
+                                                    کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                                                    دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا
+                                                    مورد استفاده قرار گیرد.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Item 1 -->
+                                    <li
+                                        class="relative collapse rounded-box border border-base-300 collapse-arrow mb-2">
+                                        <button type="button" class="collapse-title text-xl font-medium"
+                                            @click="selected !== 4 ? selected = 4 : selected = null">
+                                            <div class="flex items-center justify-between">
+                                                <span>
+                                                    چطور با شما تماس بگیرم؟
+                                                </span>
+                                                <span class="ico-plus"></span>
+                                            </div>
+                                        </button>
+                                        <div class="relative overflow-hidden transition-all max-h-0 duration-700"
+                                            style="" x-ref="container4"
+                                            x-bind:style="selected == 4 ? 'max-height: ' + $refs.container4.scrollHeight + 'px' : ''">
+                                            <div class="p-6">
+                                                <p>
+                                                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+                                                    استفاده از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در
+                                                    ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و
+                                                    کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
+                                                </p>
+                                                <p>
+                                                    کتابهای زیادی در شصت و سه درصد گذشته، حال و آینده شناخت فراوان جامعه
+                                                    و متخصصان را می طلبد تا با نرم افزارها شناخت بیشتری را برای طراحان
+                                                    رایانه ای علی الخصوص طراحان خلاقی و فرهنگ پیشرو در زبان فارسی ایجاد
+                                                    کرد. در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه
+                                                    راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی
+                                                    دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا
+                                                    مورد استفاده قرار گیرد.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Desktop Contact Button -->
+                            <div class="rounded-box mt-4 mb-2 text-center hidden lg:block">
+                                <div class="collapse-title">
+                                    <a href="tel:0910000000" class="btn btn-sm lg:btn-md btn-wide btn-success">
+                                        مشاوره رایگان تلفنی
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- <div class="w-full">
                                 <div class="collapse rounded-box border border-base-300 collapse-arrow mb-2">
                                     <input type="checkbox">
                                     <div class="collapse-title text-xl font-medium">
@@ -586,16 +751,7 @@
                                         </p>
                                     </div>
                                 </div>
-
-                                <!-- Desktop Contact Button -->
-                                <div class="rounded-box mt-4 mb-2 text-center hidden lg:block">
-                                    <div class="collapse-title">
-                                        <a href="tel:0910000000" class="btn btn-sm lg:btn-md btn-wide btn-success">
-                                            مشاوره رایگان تلفنی
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -611,7 +767,7 @@
                             جدیدترین مقالات
                         </h2>
                     </div>
-                    <div class="flex items-center justify-center lg:justify-end">
+                    <div class="hidden lg:flex items-center justify-center lg:justify-end">
                         <a href="#" class="text-xl">
                             مشاهده همه مقالات
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="w-6 h-6 inline-block"
@@ -622,7 +778,9 @@
                         </a>
                     </div>
                 </div>
-                <div class="grid grid-cols-2 lg:grid-cols-2 gap-3">
+
+                <!-- Section Content -->
+                <div class="grid grid-cols-2 lg:grid-cols-2 gap-3 mb-4 lg:mb-0">
                     <a href="#" class="card grid grid-cols-1 xl:grid-cols-5 bordered hover:shadow transition-shadow">
                         <figure class="p-2 md:p-4 md:pb-0 lg:p-2 relative h-full xl:col-span-2">
                             <img src="https://picsum.photos/id/1010/400/250" class="rounded-box h-full object-cover"
@@ -632,8 +790,7 @@
                             <h2 class="card-title text-lg">روش‌های دریافت بورسیه داشگاه‌های روسیه</h2>
                             <p class="text-sm">
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است.
+                                گرافیک است.
                             </p>
                         </div>
                     </a>
@@ -646,8 +803,7 @@
                             <h2 class="card-title text-lg">روش‌های دریافت بورسیه داشگاه‌های روسیه</h2>
                             <p class="text-sm">
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است.
+                                گرافیک است.
                             </p>
                         </div>
                     </a>
@@ -660,8 +816,7 @@
                             <h2 class="card-title text-lg">روش‌های دریافت بورسیه داشگاه‌های روسیه</h2>
                             <p class="text-sm">
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است.
+                                گرافیک است.
                             </p>
                         </div>
                     </a>
@@ -674,11 +829,24 @@
                             <h2 class="card-title text-lg">روش‌های دریافت بورسیه داشگاه‌های روسیه</h2>
                             <p class="text-sm">
                                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                                گرافیک است. لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است.
+                                گرافیک است.
                             </p>
                         </div>
                     </a>
+                </div>
+
+                <!-- Section Read More in Mobile -->
+                <div class="grid grid-cols-1 lg:hidden">
+                    <div class="flex items-center justify-center lg:justify-end">
+                        <a href="#" class="text-base">
+                            مشاهده همه مقالات
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="w-4 h-4 inline-block"
+                                viewBox="0 0 512 512">
+                                <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="48" d="M328 112L184 256l144 144" />
+                            </svg>
+                        </a>
+                    </div>
                 </div>
             </section>
             <!-- End: Blog Posts -->
@@ -768,46 +936,41 @@
 
         <!-- BEGIN: Footer -->
         <footer class="bg-success relative overflow-hidden">
+            <!-- SVG Container -->
             <div class="w-full bg-white">
-                <svg xmlns="http://www.w3.org/2000/svg" width="8000" height="112" viewBox="0 0 8000 112"
-                    class="transform rotate-180 hidden">
-                    <g>
-                        <path d="M 0 0 L 0 31.2322 Q 750 129.948 1500 92.5556 T 8000 24.2813 L 8000 0 Z"
-                            fill="#00948580"></path>
-                        <path d="M 0 0 L 0 55.6282 Q 750 70.0443 1500 45.1737 T 8000 33.3162 L 8000 0 Z" fill="#009485">
-                        </path>
-                    </g>
-                </svg>
-                <svg xmlns="http://www.w3.org/2000/svg" width="3000" height="112" viewBox="0 0 3000 112"
+                <svg xmlns="http://www.w3.org/2000/svg" width="4000" height="112" viewBox="0 0 4000 112"
                     class="transform rotate-180">
                     <g>
-                        <path d="M 0 0 L 0 31.2322 Q 750 129.948 1500 92.5556 T 3000 24.2813 L 3000 0 Z"
+                        <path d="M 0 0 L 0 31.2322 Q 750 129.948 1500 92.5556 T 4000 24.2813 L 4000 0 Z"
                             fill="#00948580"></path>
-                        <path d="M 0 0 L 0 55.6282 Q 750 70.0443 1500 45.1737 T 3000 33.3162 L 3000 0 Z" fill="#009485">
+                        <path d="M 0 0 L 0 55.6282 Q 750 70.0443 1500 45.1737 T 4000 33.3162 L 4000 0 Z" fill="#009485">
                         </path>
                     </g>
                 </svg>
             </div>
+
+            <!-- Footer Contents -->
             <div class="container text-white font-light">
-                <div class="grid grid-cols-1 lg:grid-cols-2 my-2 py-2 border-b border-white border-opacity-10">
-                    <div class="p-4">
+                <!-- Info And Social -->
+                <div class="grid grid-cols-1 lg:grid-cols-5 my-2 py-2 border-b border-white border-opacity-10">
+                    <div class="col-span-3 p-4">
                         <figure>
                             <img src="./assets/logo.db259dc1.png" alt="" class="mb-4 filter brightness-0 invert" width="90"
                                 height="30" loading="lazy" />
                         </figure>
-                        <h3 class="font-black mb-2">
+                        <h3 class="font-black text-base xl:text-xl mb-2">
                             با ما رتبه یک در رشته خود شوید، از آخر
                         </h3>
-                        <p class="text-sm">
+                        <p class="text-sm xl:text-base">
                             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.
                             چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی
                             تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
                         </p>
                     </div>
-                    <div class="grid justify-center items-end p-4">
+                    <div class="col-span-2 grid justify-center items-end p-4">
                         <div
                             class="grid place-items-center w-max border border-white border-opacity-10 rounded-box p-4">
-                            <h3 class="block text-base font-black mb-6">
+                            <h3 class="block font-black text-base xl:text-xl mb-6">
                                 ما را در شبکه‌های اجتماعی دنبال کنید
                             </h3>
                             <div class="px-2 lg:px-4 flex flex-wrap items-center justify-around">
@@ -869,9 +1032,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Widgets -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 my-2 py-2">
                     <div class="lg:col-span-3 p-4 mb-6 lg:mb-0">
-                        <h4 class="font-medium mb-4">
+                        <h4 class="font-medium text-base xl:text-xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="16" height="16"
                                 viewBox="0 0 512 512">
                                 <circle cx="256" cy="256" r="192" fill="none" stroke="currentColor"
@@ -881,7 +1046,7 @@
                                 دسترسی سریع
                             </span>
                         </h4>
-                        <ul class="text-sm space-y-3">
+                        <ul class="text-sm xl:text-base space-y-3">
                             <li>
                                 <a href="#">
                                     خانه
@@ -915,7 +1080,7 @@
                         </ul>
                     </div>
                     <div class="lg:col-span-5 p-4 mb-6 lg:mb-0">
-                        <h4 class="font-medium mb-4">
+                        <h4 class="font-medium text-base xl:text-xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="16" height="16"
                                 viewBox="0 0 512 512">
                                 <circle cx="256" cy="256" r="192" fill="none" stroke="currentColor"
@@ -925,7 +1090,7 @@
                                 راه‌های ارتباطی
                             </span>
                         </h4>
-                        <ul class="text-sm space-y-3">
+                        <ul class="text-sm xl:text-base space-y-3">
                             <li>
                                 <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="16" height="16"
                                     viewBox="0 0 512 512">
@@ -987,7 +1152,7 @@
                         </ul>
                     </div>
                     <div class="lg:col-span-4 p-4 mb-6 lg:mb-0">
-                        <h4 class="font-medium mb-4">
+                        <h4 class="font-medium text-base xl:text-xl mb-4">
                             <svg xmlns="http://www.w3.org/2000/svg" class="inline-block" width="16" height="16"
                                 viewBox="0 0 512 512">
                                 <circle cx="256" cy="256" r="192" fill="none" stroke="currentColor"
@@ -1028,9 +1193,11 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Copyright -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 my-2 py-2 border-t border-white border-opacity-10">
                     <div class="p-4 text-center lg:text-right">
-                        <p class="text-xs">
+                        <p class="text-xs lg:text-sm xl:text-base">
                             تمامی حقوق مادی و معنوی این وبسایت متعلق به ما می‌باشد.
                         </p>
                     </div>
