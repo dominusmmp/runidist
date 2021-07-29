@@ -38,35 +38,61 @@
 
     
     
-<script type="module" crossorigin src="./assets/index.e3a3adea.js"></script>
+<script type="module" crossorigin src="./assets/index.718a1c8b.js"></script>
   <link rel="modulepreload" href="./assets/vendor.b5e0dc1f.js">
-  <link rel="stylesheet" href="./assets/index.fc0132e1.css">
+  <link rel="stylesheet" href="./assets/index.67e5c4d9.css">
 </head>
 
 <body>
-    <div class="app">
+    <div class="app" x-data="{mobileMenuOpen: false, toggleMenu() { this.mobileMenuOpen = ! this.mobileMenuOpen }}">
         <!-- BEGIN: Loader -->
-        <!-- <div id="preloader"
-            class="bg-theme-blue z-50 fixed top-0 bottom-0 left-0 right-0 w-screen h-screen overflow-hidden grid justify-center items-center select-none">
-            <div class="text-white text-6xl animate-pulse opacity-75">RAYA PIXEL</div>
-            <span class="sr-only">Site Pre-Loader</span>
-        </div> -->
+        <div class="preloader" x-data="{windowLoad: true}" @load.window="windowLoad = ! windowLoad" x-show="windowLoad" x-transition.opacity.delay.50ms.duration.1000ms>
+            <div class="box_section">
+                <div class="image_box">
+                    <img src="./assets/logo_gradient_full-bg_transparent.8d3c98bc.svg" alt="" width="96" height="96"
+                    class="logo-sm w-20 max-h-12" loading="lazy" />
+                </div>
+                <div class="img_filter"></div>
+            </div>
+        </div>
         <!-- END: Loader -->
 
         <!-- BEGIN: Navbar -->
-        <nav
-            class="navbar-slide z-10 bg-white lg:bg-transparent fixed lg:absolute top-0 right-0 left-0 flex items-center justify-between w-full min-h-mobile-nav lg:min-h-nav border-none mx-auto py-2 lg:py-0 lg:pt-4 xl:pt-5 2xl:pt-6 px-2 lg:px-24 xl:px-32 2xl:px-40">
+        <nav class="navbar-slide z-10 bg-white lg:bg-transparent fixed lg:absolute top-0 right-0 left-0 flex items-center justify-between w-full min-h-mobile-nav lg:min-h-nav border-none mx-auto py-2 lg:py-0 lg:pt-4 xl:pt-5 2xl:pt-6 px-2 lg:px-24 xl:px-32 2xl:px-40"
+            x-data="{
+                scrolled: false,
+                sticky: false,
+                lastPos: window.scrollY + 0,
+                scroll() {
+                    if (window.innerWidth >= 1024) {
+                        this.scrolled = window.scrollY > this.$refs.navbar.offsetHeight;
+                        this.sticky = this.lastPos > window.scrollY;
+                    } else {
+                        this.scrolled = false;
+                        this.sticky = false;
+                    }
+                    this.lastPos = window.scrollY;
+                }
+            }"
+            x-init="scroll()"
+            x-ref="navbar"
+            @scroll.window="scroll()"
+            :class="{
+                'nav-sticky': scrolled,
+                'show': sticky
+            }">
+
             <!-- BEGIN: Site Logo Mobile/Tablet -->
             <a href="#" class="lg:hidden px-2">
                 <img src="./assets/logo_gradient_full-bg_transparent.8d3c98bc.svg" alt="" width="96" height="96"
-                    class="w-16 max-h-12" loading="lazy" />
+                    class="logo-sm w-16 max-h-12" loading="lazy" />
                 <span class="sr-only">Site Logo Mobile</span>
             </a>
             <!-- END: Site Logo Mobile/Tablet -->
 
             <!-- BEGIN: Mobile Menu Button -->
             <div class="text-gray-800 order-first lg:hidden">
-                <button id="mobile-nav-btn" class="btn btn-square btn-ghost" data-toggle="0">
+                <button id="mobile-nav-btn" class="btn btn-square btn-ghost" data-toggle="0" @click="toggleMenu()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-bar-chart-2 w-8 h-8 transform -rotate-90">
@@ -81,18 +107,18 @@
 
             <!-- BEGIN: Mobile Menu Overlay -->
             <div id="mobile-menu-overlay"
-                class="z-10 fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 w-full h-full cursor-pointer hidden">
+                class="z-10 fixed top-0 bottom-0 left-0 right-0 bg-black bg-opacity-50 w-full h-full cursor-pointer hidden" @click="toggleMenu()" :class="mobileMenuOpen && 'show'">
             </div>
             <!-- END: Mobile Menu Overlay -->
 
             <div id="navbar-side-panel"
-                class="navbar-side-panel bg-white text-gray-900 fixed top-0 bottom-0 left-0 z-20 w-80 lg:w-max max-w-screen lg:self-start lg:flex lg:items-center lg:relative lg:space-x-1 font-medium whitespace-nowrap hide lg:px-6 lg:py-3 lg:rounded-box">
+                class="navbar-side-panel bg-white text-gray-900 fixed top-0 bottom-0 left-0 z-20 w-80 lg:w-max max-w-screen lg:self-start lg:flex lg:items-center lg:relative lg:space-x-1 font-medium whitespace-nowrap hide lg:px-6 lg:py-3 lg:rounded-box" :class="mobileMenuOpen && 'show'">
 
                 <!-- BEGIN: Site Logo Desktop -->
                 <div class="hidden lg:block ml-8">
                     <a href="#">
                         <img src="./assets/logo_gradient_full-bg_transparent.8d3c98bc.svg" alt=""
-                            class="object-contain lg:w-16 lg:max-h-12" width="96" height="96" loading="lazy" />
+                            class="logo-lg object-contain lg:w-16 lg:max-h-12" width="96" height="96" loading="lazy" />
                         <span class="sr-only">Site Logo Desktop</span>
                     </a>
                 </div>
@@ -105,7 +131,7 @@
                     <div class="flex justify-end items-center p-3">
 
                         <!-- BEGIN: Mobile Side Menu Close Button -->
-                        <a href="#" id="mobile-menu-back" class="inline-block focus:outline-none">
+                        <a href="#" id="mobile-menu-back" class="inline-block focus:outline-none" @click="toggleMenu()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
                                 viewBox="0 0 512 512" class="inline-block w-7 h-7 mr-2 stroke-current">
                                 <path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
@@ -177,37 +203,52 @@
                 <!-- END: Nav Menu -->
 
                 <!-- BEGIN: Desktop Contact us Button -->
-                <div>
-                    <a href="tel:09120000000" class="btn bg-theme hover:bg-theme-hover lg:mr-4 hidden lg:inline-flex">
-                        <span class="font-lato lg:text-sm" dir="ltr">
-                            +98-9120000000
-                        </span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 512 512"
-                            class="hidden xl:inline-block lg:w-7 lg:h-7 stroke-current">
-                            <path xmlns="http://www.w3.org/2000/svg"
-                                d="M451 374c-15.88-16-54.34-39.35-73-48.76-24.3-12.24-26.3-13.24-45.4.95-12.74 9.47-21.21 17.93-36.12 14.75s-47.31-21.11-75.68-49.39-47.34-61.62-50.53-76.48 5.41-23.23 14.79-36c13.22-18 12.22-21 .92-45.3-8.81-18.9-32.84-57-48.9-72.8C119.9 44 119.9 47 108.83 51.6A160.15 160.15 0 0083 65.37C67 76 58.12 84.83 51.91 98.1s-9 44.38 23.07 102.64 54.57 88.05 101.14 134.49S258.5 406.64 310.85 436c64.76 36.27 89.6 29.2 102.91 23s22.18-15 32.83-31a159.09 159.09 0 0013.8-25.8C465 391.17 468 391.17 451 374z"
-                                fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
-                        </svg>
-                        <span class="sr-only">Desktop Contact Us Button</span>
-                    </a>
-                </div>
+                <a href="tel:09120000000"
+                    class="contact-lg btn bg-theme hover:bg-theme-hover lg:mr-4 hidden lg:inline-flex">
+                    <span class="font-lato lg:text-sm" dir="ltr">
+                        +98-9120000000
+                    </span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 512 512"
+                        class="hidden xl:inline-block lg:w-7 lg:h-7 stroke-current">
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="M451 374c-15.88-16-54.34-39.35-73-48.76-24.3-12.24-26.3-13.24-45.4.95-12.74 9.47-21.21 17.93-36.12 14.75s-47.31-21.11-75.68-49.39-47.34-61.62-50.53-76.48 5.41-23.23 14.79-36c13.22-18 12.22-21 .92-45.3-8.81-18.9-32.84-57-48.9-72.8C119.9 44 119.9 47 108.83 51.6A160.15 160.15 0 0083 65.37C67 76 58.12 84.83 51.91 98.1s-9 44.38 23.07 102.64 54.57 88.05 101.14 134.49S258.5 406.64 310.85 436c64.76 36.27 89.6 29.2 102.91 23s22.18-15 32.83-31a159.09 159.09 0 0013.8-25.8C465 391.17 468 391.17 451 374z"
+                            fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="32" />
+                    </svg>
+                    <span class="sr-only">Desktop Contact Us Button</span>
+                </a>
                 <!-- END: Desktop Contact us Button -->
 
                 <!-- BEGIN: Site Short Description Desktop -->
-                <div>
-                    <div
-                        class="w-max lg:absolute lg:h-10 lg:-bottom-10 lg:right-8 bg-black bg-opacity-50 text-gray-100 lg:px-4 lg:py-1 rounded-b-box hidden lg:flex items-center justify-center">
-                        <p class="lg:text-base">
-                            بیاین روسیه رو بهتر بشناسیم
-                        </p>
-                    </div>
+                <div
+                    class="w-max lg:absolute lg:h-10 lg:-bottom-10 lg:right-8 bg-black bg-opacity-50 text-gray-100 lg:px-4 lg:py-1 rounded-b-box hidden lg:flex items-center justify-center">
+                    <p class="lg:text-base">
+                        بیاین روسیه رو بهتر بشناسیم
+                    </p>
                 </div>
                 <!-- END: Site Short Description Desktop -->
             </div>
 
             <!-- BEGIN: Mobile Contact us Button -->
             <a id="mobile-contactus-btn" href="tel:00000000"
-                class="btn bg-theme hover:bg-theme-hover border-theme w-full h-max fixed bottom-0 left-0 right-0 hidden rounded-none py-1">
+                class="btn bg-theme hover:bg-theme-hover border-theme w-full h-max fixed -bottom-16 left-0 right-0 rounded-none py-1 transition-all duration-500"
+                x-data="{
+                    btnsticky: false,
+                    lastPos: window.scrollY + 0,
+                    btnscroll() {
+                        if (window.innerWidth < 1024) {
+                            this.$refs.mobileContactusBtn.style.display = 'flex';
+                            this.btnsticky = window.scrollY > 200 && this.lastPos > window.scrollY;
+                        } else {
+                            this.$refs.mobileContactusBtn.style.display = 'none';
+                            this.btnsticky = false;
+                        }
+                        this.lastPos = window.scrollY;
+                    }
+                }"
+                x-init="btnscroll()"
+                x-ref="mobileContactusBtn"
+                @scroll.window="btnscroll()"
+                :class="btnsticky && 'bottom-imp'">
                 <div class="text-sm">
                     <span class="block">مشاوره رایگان</span>
                     <span class="text-xs" dir="ltr">+98-9120000000</span>
@@ -470,8 +511,8 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
                         <div class="card card-features border md:border-none px-3">
                             <figure class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512" width="48"
-                                    height="48">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512"
+                                    width="48" height="48">
                                     <path
                                         d="M376 144c-3.92 52.87-44 96-88 96s-84.15-43.12-88-96c-4-55 35-96 88-96s92 42 88 96z"
                                         fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
@@ -483,7 +524,8 @@
                                         stroke-linejoin="round" stroke-width="32" d="M88 176v112M144 232H32" />
                                 </svg>
                             </figure>
-                            <div class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
+                            <div
+                                class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
                                 <div class="card-title mb-0 text-lg">
                                     عقد قرار داد رسمی
                                 </div>
@@ -491,8 +533,8 @@
                         </div>
                         <div class="card card-features border md:border-none px-3">
                             <figure class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512" width="48"
-                                    height="48">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512"
+                                    width="48" height="48">
                                     <rect x="48" y="96" width="416" height="320" rx="56" ry="56" fill="none"
                                         stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                         stroke-width="32" />
@@ -500,7 +542,8 @@
                                         d="M48 192h416M128 300h48v20h-48z" />
                                 </svg>
                             </figure>
-                            <div class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
+                            <div
+                                class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
                                 <div class="card-title mb-0 text-lg">
                                     پشتیبانی کامل یکساله
                                 </div>
@@ -508,8 +551,8 @@
                         </div>
                         <div class="card card-features border md:border-none px-3">
                             <figure class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512" width="48"
-                                    height="48">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512"
+                                    width="48" height="48">
                                     <path fill="none" stroke="currentColor" stroke-linecap="round"
                                         stroke-linejoin="round" stroke-width="32"
                                         d="M176 416v64M80 32h192a32 32 0 0132 32v412a4 4 0 01-4 4H48h0V64a32 32 0 0132-32zM320 192h112a32 32 0 0132 32v256h0-160 0V208a16 16 0 0116-16z" />
@@ -521,7 +564,8 @@
                                         d="M258.08 111.87a16 16 0 1113.79-13.79 16 16 0 01-13.79 13.79zM400 400a16 16 0 1016 16 16 16 0 00-16-16zM400 320a16 16 0 1016 16 16 16 0 00-16-16zM400 240a16 16 0 1016 16 16 16 0 00-16-16zM336 400a16 16 0 1016 16 16 16 0 00-16-16zM336 320a16 16 0 1016 16 16 16 0 00-16-16zM336 240a16 16 0 1016 16 16 16 0 00-16-16z" />
                                 </svg>
                             </figure>
-                            <div class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
+                            <div
+                                class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
                                 <div class="card-title mb-0 text-lg">
                                     بازگشت کامل حق الوکاله درصورت عدم پذیرش
                                 </div>
@@ -529,8 +573,8 @@
                         </div>
                         <div class="card card-features border md:border-none px-3">
                             <figure class="flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512" width="48"
-                                    height="48">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12" viewBox="0 0 512 512"
+                                    width="48" height="48">
                                     <circle cx="256" cy="160" r="128" fill="none" stroke="currentColor"
                                         stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                                     <path d="M143.65 227.82L48 400l86.86-.42a16 16 0 0113.82 7.8L192 480l88.33-194.32"
@@ -543,7 +587,8 @@
                                         stroke-linecap="round" stroke-linejoin="round" stroke-width="32" />
                                 </svg>
                             </figure>
-                            <div class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
+                            <div
+                                class="card-body justify-center items-start md:justify-start md:items-center md:text-center">
                                 <div class="card-title mb-0 text-lg">
                                     مشاوره رایگان
                                 </div>
