@@ -38,9 +38,9 @@
 
     
     
-<script type="module" crossorigin src="./assets/index.718a1c8b.js"></script>
+<script type="module" crossorigin src="./assets/index.d9f5e61f.js"></script>
   <link rel="modulepreload" href="./assets/vendor.b5e0dc1f.js">
-  <link rel="stylesheet" href="./assets/index.67e5c4d9.css">
+  <link rel="stylesheet" href="./assets/index.73e62c30.css">
 </head>
 
 <body>
@@ -50,7 +50,7 @@
             <div class="box_section">
                 <div class="image_box">
                     <img src="./assets/logo_gradient_full-bg_transparent.8d3c98bc.svg" alt="" width="96" height="96"
-                    class="logo-sm w-20 max-h-12" loading="lazy" />
+                    class="logo-sm w-20 max-h-12" />
                 </div>
                 <div class="img_filter"></div>
             </div>
@@ -60,13 +60,11 @@
         <!-- BEGIN: Navbar -->
         <nav class="navbar-slide z-10 bg-white lg:bg-transparent fixed lg:absolute top-0 right-0 left-0 flex items-center justify-between w-full min-h-mobile-nav lg:min-h-nav border-none mx-auto py-2 lg:py-0 lg:pt-4 xl:pt-5 2xl:pt-6 px-2 lg:px-24 xl:px-32 2xl:px-40"
             x-data="{
-                scrolled: false,
                 sticky: false,
                 lastPos: window.scrollY + 0,
                 scroll() {
                     if (window.innerWidth >= 1024) {
-                        this.scrolled = window.scrollY > this.$refs.navbar.offsetHeight;
-                        this.sticky = this.lastPos > window.scrollY;
+                        this.sticky = window.scrollY > this.$refs.navbar.offsetHeight;
                     } else {
                         this.scrolled = false;
                         this.sticky = false;
@@ -77,10 +75,7 @@
             x-init="scroll()"
             x-ref="navbar"
             @scroll.window="scroll()"
-            :class="{
-                'nav-sticky': scrolled,
-                'show': sticky
-            }">
+            :class="sticky && 'nav-sticky show'">
 
             <!-- BEGIN: Site Logo Mobile/Tablet -->
             <a href="#" class="lg:hidden px-2">
@@ -131,7 +126,7 @@
                     <div class="flex justify-end items-center p-3">
 
                         <!-- BEGIN: Mobile Side Menu Close Button -->
-                        <a href="#" id="mobile-menu-back" class="inline-block focus:outline-none" @click="toggleMenu()">
+                        <button id="mobile-menu-back" class="inline-block focus:outline-none" @click="toggleMenu()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none"
                                 viewBox="0 0 512 512" class="inline-block w-7 h-7 mr-2 stroke-current">
                                 <path xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor"
@@ -139,7 +134,7 @@
                                     d="M244 400L100 256l144-144M120 256h292" />
                             </svg>
                             <span class="sr-only">Mobile Navigation Menu Button</span>
-                        </a>
+                        </button>
                         <!-- END: Mobile Side Menu Close Button -->
 
                     </div>
@@ -220,7 +215,7 @@
 
                 <!-- BEGIN: Site Short Description Desktop -->
                 <div
-                    class="w-max lg:absolute lg:h-10 lg:-bottom-10 lg:right-8 bg-black bg-opacity-50 text-gray-100 lg:px-4 lg:py-1 rounded-b-box hidden lg:flex items-center justify-center">
+                    class="desc-lg w-max lg:absolute lg:h-10 lg:-bottom-10 lg:right-8 bg-black bg-opacity-50 text-gray-100 lg:px-4 lg:py-1 rounded-b-box hidden lg:flex items-center justify-center">
                     <p class="lg:text-base">
                         بیاین روسیه رو بهتر بشناسیم
                     </p>
@@ -237,7 +232,7 @@
                     btnscroll() {
                         if (window.innerWidth < 1024) {
                             this.$refs.mobileContactusBtn.style.display = 'flex';
-                            this.btnsticky = window.scrollY > 200 && this.lastPos > window.scrollY;
+                            this.btnsticky = window.scrollY > 200;
                         } else {
                             this.$refs.mobileContactusBtn.style.display = 'none';
                             this.btnsticky = false;
