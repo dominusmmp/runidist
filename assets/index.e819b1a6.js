@@ -1,0 +1,1 @@
+import"./defaults.312161fb.js";import{S as e}from"./vendor.94eb4d86.js";new e("#cities-slider",{speed:200,slidesPerView:1,spaceBetween:8,grabCursor:!0,autoplay:{delay:3e3,disableOnInteraction:!1},watchOverflow:!0,breakpoints:{640:{slidesPerView:2,spaceBetween:16},1280:{slidesPerView:3.5,spaceBetween:32},3840:{slidesPerView:4,spaceBetween:48}}});
