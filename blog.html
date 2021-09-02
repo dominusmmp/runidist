@@ -37,9 +37,8 @@
     <!-- END: Default Head -->
 
     
-  <script type="module" crossorigin src="./assets/js/blog.js"></script>
-    <link rel="modulepreload" href="./assets/js/index2.js">
-    <link rel="modulepreload" href="./assets/js/vendor.js">
+  <script type="module" crossorigin src="./assets/js/ignore3.js"></script>
+    <link rel="modulepreload" href="./assets/js/index.js">
     <link rel="stylesheet" href="./assets/css/index.css">
   </head>
 
@@ -108,7 +107,9 @@
 
             <!-- BEGIN: Mobile Menu Button -->
             <div class="text-gray-800 order-first lg:hidden">
-                <button id="mobile-nav-btn" class="btn btn-square btn-ghost" data-toggle="0" @click="toggleMenu()">
+                <button id="mobile-nav-btn"
+                    class="btn btn-square btn-ghost hover:!bg-transparent hover:!border-transparent" data-toggle="0"
+                    @click="toggleMenu()">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-bar-chart-2 w-8 h-8 transform -rotate-90">
@@ -222,7 +223,7 @@
 
                 <!-- BEGIN: Desktop Contact us Button -->
                 <a href="tel:09120000000"
-                    class="contact-lg btn bg-theme hover:bg-theme-hover lg:mr-4 hidden lg:inline-flex">
+                    class="contact-lg btn bg-theme hover:!bg-theme-hover lg:mr-4 hidden lg:inline-flex">
                     <span class="font-lato lg:text-sm" dir="ltr">
                         +98-9120000000
                     </span>
@@ -248,7 +249,7 @@
 
             <!-- BEGIN: Mobile Contact us Button -->
             <a id="mobile-contactus-btn" href="tel:00000000"
-                class="btn bg-theme hover:bg-theme-hover border-theme w-full h-max fixed -bottom-16 left-0 right-0 rounded-none py-1 transition-all duration-500"
+                class="btn bg-theme hover:!bg-theme-hover border-theme hover:!border-theme w-full h-max fixed -bottom-16 left-0 right-0 rounded-none py-1 transition-all duration-500"
                 x-data="{
                     btnsticky: false,
                     lastPos: window.scrollY + 0,
@@ -276,7 +277,7 @@
                 </svg>
                 <span class="sr-only">Mobile Contact Us Button</span>
             </a>
-            <!-- END: Desktop Contact us Button -->
+            <!-- END: Mobile Contact us Button -->
 
             <!-- BEGIN: Site Short Description Mobile -->
             <!-- <div class="fixed top-topdesc right-0 w-full">
@@ -337,10 +338,10 @@
                     <div class="grid grid-cols-1 lg:grid-cols-12">
 
                         <!-- Blog Posts -->
-                        <div class="lg:col-span-8 p-4">
+                        <div class="lg:col-span-9 p-4">
 
                             <!-- Blog Posts Container -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-8 mb-12">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
 
                                 <!-- Blog Posts Loop / Start -->
                                 <div class="blog-index-card card shadow hover:shadow-lg transition-all duration-300">
@@ -879,7 +880,7 @@
                         </div>
 
                         <!-- Blog Sidebar -->
-                        <div class="blog-sidebar lg:col-span-4 p-4">
+                        <div class="blog-sidebar lg:col-span-3 p-4">
                             <div class="sticky top-32">
 
                                 <!-- Blog Sidebare Box Header -->
@@ -991,7 +992,7 @@
                             </h3>
                             <div class="px-2 lg:px-4 flex flex-wrap items-center justify-around">
                                 <a href="#"
-                                    class="btn btn-square bg-transparent hover:bg-transparent text-white border-none m-1 hover:shadow">
+                                    class="btn btn-square bg-transparent hover:!bg-transparent text-white border-none m-1 hover:shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                                         width="24" height="24">
                                         <path
@@ -1001,7 +1002,7 @@
                                     </svg>
                                 </a>
                                 <a href="#"
-                                    class="btn btn-square bg-transparent hover:bg-transparent text-white border-none m-1 hover:shadow">
+                                    class="btn btn-square bg-transparent hover:!bg-transparent text-white border-none m-1 hover:shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                                         width="24" height="24">
                                         <path
@@ -1013,7 +1014,7 @@
                                     </svg>
                                 </a>
                                 <a href="#"
-                                    class="btn btn-square bg-transparent hover:bg-transparent text-white border-none m-1 hover:shadow">
+                                    class="btn btn-square bg-transparent hover:!bg-transparent text-white border-none m-1 hover:shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                                         width="24" height="24">
                                         <path
@@ -1022,7 +1023,7 @@
                                     </svg>
                                 </a>
                                 <a href="#"
-                                    class="btn btn-square bg-transparent hover:bg-transparent text-white border-none m-1 hover:shadow">
+                                    class="btn btn-square bg-transparent hover:!bg-transparent text-white border-none m-1 hover:shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                                         width="24" height="24">
                                         <path
@@ -1031,7 +1032,7 @@
                                     </svg>
                                 </a>
                                 <a href="#"
-                                    class="btn btn-square bg-transparent hover:bg-transparent text-white border-none m-1 hover:shadow">
+                                    class="btn btn-square bg-transparent hover:!bg-transparent text-white border-none m-1 hover:shadow">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"
                                         width="24" height="24">
                                         <path
